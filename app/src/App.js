@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './styles/app.scss'
 
 const carros = [
   {categoria: "Esporte", preco: "95000", modelo: "Golf GTI"},
@@ -49,8 +50,8 @@ const tabelaCarros = (cat) => {
 const pesquisaCategoria = (categoria, setCat) => {
   
   return (
-    <div>
-      <label>Digite uma categoria</label>
+    <div className="search">
+      <label>Digite uma categoria:</label>
       <input type="text" value={categoria} onChange={(e) => setCat(e.target.value)}/>
     </div>
   )
@@ -61,11 +62,11 @@ function App() {
   const [categoria, setCategoria] = useState('')
 
   return (
-    <>
+    <div className="content">
       {pesquisaCategoria(categoria, setCategoria)}
       <br />
       {tabelaCarros(categoria)}
-    </>
+    </div>
   );
 }
 
